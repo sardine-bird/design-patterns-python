@@ -1,6 +1,6 @@
 # (ヘビク)イワシのデザインパターン勉強用リポジトリ
 Refactoring.Guruのデザインパターンのページから作成。
-このリポジトリもhttps://github.com/RefactoringGuru/design-patterns-pythonのfork。
+このリポジトリも https://github.com/RefactoringGuru/design-patterns-python のfork。
 
 ## 使い方
 1. cloneする
