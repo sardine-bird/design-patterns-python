@@ -4,10 +4,6 @@ EN: Factory Method Design Pattern
 Intent: Provides an interface for creating objects in a superclass, but allows
 subclasses to alter the type of objects that will be created.
 
-RU: Паттерн Фабричный Метод
-
-Назначение: Определяет общий интерфейс для создания объектов в суперклассе,
-позволяя подклассам изменять тип создаваемых объектов.
 """
 
 
@@ -21,9 +17,6 @@ class Creator(ABC):
     an object of a Product class. The Creator's subclasses usually provide the
     implementation of this method.
 
-    RU: Класс Создатель объявляет фабричный метод, который должен возвращать
-    объект класса Продукт. Подклассы Создателя обычно предоставляют реализацию
-    этого метода.
     """
 
     @abstractmethod
@@ -32,8 +25,6 @@ class Creator(ABC):
         EN: Note that the Creator may also provide some default implementation
         of the factory method.
 
-        RU: Обратите внимание, что Создатель может также обеспечить реализацию
-        фабричного метода по умолчанию.
         """
         pass
 
@@ -46,22 +37,13 @@ class Creator(ABC):
         overriding the factory method and returning a different type of product
         from it.
 
-        RU: Также заметьте, что, несмотря на название, основная обязанность
-        Создателя не заключается в создании продуктов. Обычно он содержит
-        некоторую базовую бизнес-логику, которая основана на объектах Продуктов,
-        возвращаемых фабричным методом. Подклассы могут косвенно изменять эту
-        бизнес-логику, переопределяя фабричный метод и возвращая из него другой
-        тип продукта.
         """
 
         # EN: Call the factory method to create a Product object.
         #
-        # RU: Вызываем фабричный метод, чтобы получить объект-продукт.
         product = self.factory_method()
 
         # EN: Now, use the product.
-        #
-        # RU: Далее, работаем с этим продуктом.
         result = f"Creator: The same creator's code has just worked with {product.operation()}"
 
         return result
@@ -71,8 +53,6 @@ class Creator(ABC):
 EN: Concrete Creators override the factory method in order to change the
 resulting product's type.
 
-RU: Конкретные Создатели переопределяют фабричный метод для того, чтобы изменить
-тип результирующего продукта.
 """
 
 
@@ -82,10 +62,6 @@ class ConcreteCreator1(Creator):
     type, even though the concrete product is actually returned from the method.
     This way the Creator can stay independent of concrete product classes.
 
-    RU: Обратите внимание, что сигнатура метода по-прежнему использует тип
-    абстрактного продукта, хотя фактически из метода возвращается конкретный
-    продукт. Таким образом, Создатель может оставаться независимым от конкретных
-    классов продуктов.
     """
 
     def factory_method(self) -> Product:
@@ -102,8 +78,6 @@ class Product(ABC):
     EN: The Product interface declares the operations that all concrete products
     must implement.
 
-    RU: Интерфейс Продукта объявляет операции, которые должны выполнять все
-    конкретные продукты.
     """
 
     @abstractmethod
@@ -114,7 +88,6 @@ class Product(ABC):
 """
 EN: Concrete Products provide various implementations of the Product interface.
 
-RU: Конкретные Продукты предоставляют различные реализации интерфейса Продукта.
 """
 
 
@@ -133,10 +106,6 @@ def client_code(creator: Creator) -> None:
     EN: The client code works with an instance of a concrete creator, albeit
     through its base interface. As long as the client keeps working with the
     creator via the base interface, you can pass it any creator's subclass.
-
-    RU: Клиентский код работает с экземпляром конкретного создателя, хотя и
-    через его базовый интерфейс. Пока клиент продолжает работать с создателем
-    через базовый интерфейс, вы можете передать ему любой подкласс создателя.
     """
 
     print(f"Client: I'm not aware of the creator's class, but it still works.\n"
